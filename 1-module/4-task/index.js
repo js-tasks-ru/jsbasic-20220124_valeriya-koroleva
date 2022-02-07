@@ -8,4 +8,3 @@ function checkSpam(str) {
    }
    return false;
 }
-let input = checkSpam('innocent rabbit');

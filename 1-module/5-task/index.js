@@ -8,4 +8,3 @@ function truncate(str, maxlength) {
   
   return str;
 }
-let input = truncate('Вот, что мне хотелось бы сказать на эту тему:', 20);

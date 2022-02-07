@@ -7,4 +7,3 @@ function ucFirst (str) {
       return strAsArr.join('');
   }
 }
-let firstname = ucFirst('вася');

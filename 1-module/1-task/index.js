@@ -5,4 +5,3 @@ function factorial (n) {
   }
  return r;
 }
-let m = factorial(5);
