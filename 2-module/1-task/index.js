@@ -3,7 +3,7 @@ function sumSalary(salaries) {
    for (let salary of Object.values(salaries)) {
 
           if(typeof salary === 'number' &&
-              !(isNaN(salary)) && (isFinite(salary))) {
+              !(isNaN(salary)) && !(isFinite(salary))) {
 
            sum+= salary;
       }
