@@ -1,4 +1,5 @@
 function isEmpty(obj) {
- 
-  return !Object.keys(obj).length
+  for (let key in obj) {
+    return false;
+  } return true;
 }
