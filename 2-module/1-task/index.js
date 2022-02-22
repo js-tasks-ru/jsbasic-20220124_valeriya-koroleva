@@ -1,12 +1,20 @@
+let salaries = {
+  month: 'December',
+  currency: 'USD',
+  isPayed: false
+};
+
 function sumSalary(salaries) {
   let sum = 0;
    for (let salary of Object.values(salaries)) {
 
           if(typeof salary === 'number' &&
-              !(isNaN(salary)) && !(isFinite(salary))) {
+              !(isNaN(salary)) && (isFinite(salary))) {
 
            sum+= salary;
       }
   }
   return sum;
 }
+
+console.log(sumSalary(salaries));
