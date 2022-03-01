@@ -4,34 +4,38 @@ function initCarousel() {
   let sliger = document.querySelector('.carousel__inner');
   let viewport = document.querySelector('.container').offsetWidth;
   let viewSlide = 0;
-  
-btnNext.addEventListener('click', goNextCarosel);
-btnPrev.addEventListener('click', goPrevCarosel);
 
-  function goNextCarosel() {
-    if (viewSlide < 3) {
-        viewSlide++;
+
+  btnPrev.style.display = 'none';
+
+
+  btnNext.addEventListener('click', goNextCarosel);
+  btnPrev.addEventListener('click', goPrevCarosel);
+
+    function goNextCarosel() {
+      if (viewSlide < 3) {
+          viewSlide++;
+      }
+      let position = -viewSlide * viewport + "px";
+      sliger.style.transform = `translateX(${position})`;
+
+      if (viewSlide == 3) {
+        btnNext.style.display = 'none';
+      } else {
+        btnPrev.style.display = '';
+      }
     }
+
+    function goPrevCarosel () {
+      if (viewSlide > 0) {
+        viewSlide--;
+    } 
     let position = -viewSlide * viewport + "px";
     sliger.style.transform = `translateX(${position})`;
-
-    if (viewSlide == 3) {
-      btnNext.style.display = 'none';
+    if (viewSlide == 0) {
+      btnPrev.style.display = 'none';
     } else {
-      btnPrev.style.display = '';
+      btnNext.style.display = '';
     }
-  }
-
-  function goPrevCarosel () {
-    if (viewSlide > 0) {
-      viewSlide--;
-  } 
-  let position = -viewSlide * viewport + "px";
-  sliger.style.transform = `translateX(${position})`;
-  if (viewSlide == 0) {
-    btnPrev.style.display = 'none';
-  } else {
-    btnNext.style.display = '';
-  }
-  }
+    }
 }
