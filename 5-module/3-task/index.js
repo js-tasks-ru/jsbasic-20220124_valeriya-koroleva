@@ -2,7 +2,7 @@ function initCarousel() {
   let btnNext = document.querySelector('.carousel__arrow_right');
   let btnPrev = document.querySelector('.carousel__arrow_left');
   let sliger = document.querySelector('.carousel__inner');
-  let viewport = document.querySelector('.container').offsetWidth;
+  // let viewport = document.querySelector('.container').offsetWidth;
   let viewSlide = 0;
 
 
@@ -12,7 +12,7 @@ function initCarousel() {
   btnNext.addEventListener('click', function() {
     viewSlide++;
   
-  sliger.style.transform = 'translateX(' + -viewSlide * viewport + 'px )';
+  sliger.style.transform = 'translateX(-' + viewSlide * sliger.offsetWidth + 'px)';
 
   if (viewSlide == 3) {
     btnNext.style.display = 'none';
@@ -25,7 +25,7 @@ function initCarousel() {
   btnPrev.addEventListener('click', function() {
     viewSlide--;
 
-  sliger.style.transform = 'translateX(' + -viewSlide * viewport + 'px )';;
+  sliger.style.transform = 'translateX(-' + viewSlide * sliger.offsetWidth + 'px)';;
 
   if (viewSlide == 0) {
     btnPrev.style.display = 'none';
