@@ -10,11 +10,9 @@ function initCarousel() {
 
 
   btnNext.addEventListener('click', function() {
-    if (viewSlide < 3) {
-      viewSlide++;
-  }
-  let position = -viewSlide * viewport + "px";
-  sliger.style.transform = `translateX(${position})`;
+    if (viewSlide < 3) viewSlide++;
+  
+  sliger.style.transform = 'translateX(' + -viewSlide * viewport + 'px )';
 
   if (viewSlide == 3) {
     btnNext.style.display = 'none';
@@ -22,12 +20,13 @@ function initCarousel() {
     btnPrev.style.display = '';
   }
   });
+
+
   btnPrev.addEventListener('click', function() {
-    if (viewSlide > 0) {
-      viewSlide--;
-  } 
-  let position = -viewSlide * viewport + "px";
-  sliger.style.transform = `translateX(${position})`;
+    if (viewSlide > 0) viewSlide--;
+
+  sliger.style.transform = 'translateX(' + -viewSlide * viewport + 'px )';;
+
   if (viewSlide == 0) {
     btnPrev.style.display = 'none';
   } else {
