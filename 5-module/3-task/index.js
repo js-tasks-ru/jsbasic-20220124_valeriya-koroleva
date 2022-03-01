@@ -9,33 +9,30 @@ function initCarousel() {
   btnPrev.style.display = 'none';
 
 
-  btnNext.addEventListener('click', goNextCarosel);
-  btnPrev.addEventListener('click', goPrevCarosel);
+  btnNext.addEventListener('click', function() {
+    if (viewSlide < 3) {
+      viewSlide++;
+  }
+  let position = -viewSlide * viewport + "px";
+  sliger.style.transform = `translateX(${position})`;
 
-    function goNextCarosel() {
-      if (viewSlide < 3) {
-          viewSlide++;
-      }
-      let position = -viewSlide * viewport + "px";
-      sliger.style.transform = `translateX(${position})`;
+  if (viewSlide == 3) {
+    btnNext.style.display = 'none';
+  } else {
+    btnPrev.style.display = '';
+  }
+  });
+  btnPrev.addEventListener('click', function() {
+    if (viewSlide > 0) {
+      viewSlide--;
+  } 
+  let position = -viewSlide * viewport + "px";
+  sliger.style.transform = `translateX(${position})`;
+  if (viewSlide == 0) {
+    btnPrev.style.display = 'none';
+  } else {
+    btnNext.style.display = '';
+  }
+  });
 
-      if (viewSlide == 3) {
-        btnNext.style.display = 'none';
-      } else {
-        btnPrev.style.display = '';
-      }
-    }
-
-    function goPrevCarosel () {
-      if (viewSlide > 0) {
-        viewSlide--;
-    } 
-    let position = -viewSlide * viewport + "px";
-    sliger.style.transform = `translateX(${position})`;
-    if (viewSlide == 0) {
-      btnPrev.style.display = 'none';
-    } else {
-      btnNext.style.display = '';
-    }
-    }
 }
