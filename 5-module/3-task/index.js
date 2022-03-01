@@ -10,7 +10,7 @@ function initCarousel() {
 
 
   btnNext.addEventListener('click', function() {
-    if (viewSlide < 3) viewSlide++;
+    viewSlide++;
   
   sliger.style.transform = 'translateX(' + -viewSlide * viewport + 'px )';
 
@@ -23,7 +23,7 @@ function initCarousel() {
 
 
   btnPrev.addEventListener('click', function() {
-    if (viewSlide > 0) viewSlide--;
+    viewSlide--;
 
   sliger.style.transform = 'translateX(' + -viewSlide * viewport + 'px )';;
 
