@@ -3,9 +3,6 @@ export default class UserTable {
     this.table = document.createElement('table');
     this.tbody = document.createElement('tbody');
     this.rows = rows;
-  }
-
-  get elem() {
     this.table.innerHTML = `<thead>
     <tr>
       <th>Имя</th>
@@ -15,7 +12,11 @@ export default class UserTable {
       <th></th>
     </tr>
   </thead>`;
+  }
+
+  get elem() {
   this.table.appendChild(this.tbody);
+  
     for (const row of this.rows) {
       this.tbody.insertAdjacentHTML('beforeEnd', 
       `<tr>
