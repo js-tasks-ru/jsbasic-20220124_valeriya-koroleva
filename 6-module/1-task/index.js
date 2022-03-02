@@ -3,20 +3,20 @@ export default class UserTable {
     this.table = document.createElement('table');
     this.tbody = document.createElement('tbody');
     this.rows = rows;
-    this.table.innerHTML = `<thead>
-    <tr>
-      <th>Имя</th>
-      <th>Возраст</th>
-      <th>Зарплата</th>
-      <th>Город</th>
-      <th></th>
-    </tr>
-  </thead>`;
+
   }
 
   get elem() {
-  this.table.appendChild(this.tbody);
-  
+      this.table.innerHTML = `<thead>
+      <tr>
+        <th>Имя</th>
+        <th>Возраст</th>
+        <th>Зарплата</th>
+        <th>Город</th>
+        <th></th>
+      </tr>
+    </thead>`;
+    this.table.appendChild(this.tbody);
     for (const row of this.rows) {
       this.tbody.insertAdjacentHTML('beforeEnd', 
       `<tr>
@@ -28,13 +28,15 @@ export default class UserTable {
       </tr>`);
     }
 
-    this.tbody.addEventListener('click', this.onClick);
+    this.table.addEventListener('click', this.onClick);
 
     return this.table;
   }
+
   onClick(event) {
     const button = event.target.closest('button');
     const trCr = event.target.closest('tr');
+    
     if (button) {
       trCr.remove();
     }
