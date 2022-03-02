@@ -28,6 +28,7 @@ export default class UserTable {
     }
 
     this.tbody.addEventListener('click', this.onClick);
+
     return this.table;
   }
   onClick(event) {
@@ -38,3 +39,5 @@ export default class UserTable {
     }
   }
 }
+
+
