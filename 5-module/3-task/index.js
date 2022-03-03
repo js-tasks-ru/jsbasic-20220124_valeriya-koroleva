@@ -2,7 +2,6 @@ function initCarousel() {
   let btnNext = document.querySelector('.carousel__arrow_right');
   let btnPrev = document.querySelector('.carousel__arrow_left');
   let sliger = document.querySelector('.carousel__inner');
-  // let viewport = document.querySelector('.container').offsetWidth;
   let viewSlide = 0;
 
 
