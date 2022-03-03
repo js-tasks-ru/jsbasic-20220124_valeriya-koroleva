@@ -1,9 +1,7 @@
 export default class UserTable {
   constructor(rows) {
-    this.table = document.createElement('table');
-    this.tbody = document.createElement('tbody');
     this.rows = rows;
-
+    this.table = document.createElement('table');
     this.table.innerHTML = `<thead>
     <tr>
       <th>Имя</th>
@@ -13,7 +11,7 @@ export default class UserTable {
       <th></th>
     </tr>
   </thead>`;
-  
+  this.tbody = document.createElement('tbody');
   this.table.appendChild(this.tbody);
 
   for (const row of this.rows) {
