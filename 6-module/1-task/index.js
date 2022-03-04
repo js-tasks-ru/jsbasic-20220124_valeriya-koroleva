@@ -11,6 +11,7 @@ export default class UserTable {
       <th></th>
     </tr>
   </thead>`;
+  
   this.tbody = document.createElement('tbody');
   this.table.appendChild(this.tbody);
 
