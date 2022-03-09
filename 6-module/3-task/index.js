@@ -31,7 +31,6 @@ export default class Carousel {
   this.btnNext = this.carousel.querySelector('.carousel__arrow_right');
   this.sliger = this.carousel.querySelector('.carousel__inner');
   this.viewSlide = 0;
-  console.log(this.sliger);
 
   this.btnPrev.style.display = 'none';
 
@@ -82,5 +81,3 @@ get elem() {
   return this.carousel;
 }
 }
-
-
