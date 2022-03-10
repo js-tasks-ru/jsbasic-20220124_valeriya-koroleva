@@ -30,21 +30,19 @@ export default class Carousel {
   this.btnPrev = this.carousel.querySelector('.carousel__arrow_left');
   this.btnNext = this.carousel.querySelector('.carousel__arrow_right');
   this.sliger = this.carousel.querySelector('.carousel__inner');
+  this.buttons = this.carousel.querySelectorAll('.carousel__button');
   this.viewSlide = 0;
-  console.log(this.sliger);
 
   this.btnPrev.style.display = 'none';
 
   this.btnNext.addEventListener('click', () => {
     this.carouselInnerWidth = this.sliger.offsetWidth;
-
     this.viewSlide -= this.carouselInnerWidth;
     this.sliger.style.transform = `translateX(${this.viewSlide}px)`;
 
     if (this.viewSlide < 0) {
       this.btnPrev.style.display = '';
     }
-
     if (this.viewSlide === -this.carouselInnerWidth * (this.slides.length - 1)) {
       this.btnNext.style.display = 'none';
     }
@@ -53,34 +51,31 @@ export default class Carousel {
 
   this.btnPrev.addEventListener('click', () => {
     this.carouselInnerWidth = this.sliger.offsetWidth;
-
     this.viewSlide += this.carouselInnerWidth;
     this.sliger.style.transform = `translateX(${this.viewSlide}px)`;
 
     if (this.viewSlide > -this.carouselInnerWidth * (this.slides.length - 1)) {
       this.btnNext.style.display = '';
     }
-
     if (this.viewSlide === 0) {
       this.btnPrev.style.display = 'none';
     }
   });
 
-  this.carousel.addEventListener('click',(event) =>{
-    const btn = event.target.closest('.card__button') 
-    if(btn){
-      const productAddBtn = new CustomEvent('product-add',{
-        detail: this.product.id,
-        bubbles : true,
-      })
-    btn.dispatchEvent(productAddBtn);
-  }})
-  
+  for (let btn of this.buttons) {
+    btn.addEventListener('click', (event) => {
+
+      let productAddEvent = new CustomEvent("product-add", {
+        detail: event.target.closest('.carousel__slide').getAttribute('data-id'),
+        bubbles: true
+      });
+
+      this.carousel.dispatchEvent(productAddEvent);
+    });
+  }
 }
 
 get elem() {
   return this.carousel;
 }
 }
-
-
